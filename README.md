@@ -1,9 +1,10 @@
 # Catch-the-coffee
 A game
 
-A pygame and tkinter game:
-the main manu is made with tkinter because its very easy to create button with tkinter,
-and i made the real game with pygame.
+A game made with pygame and tkinter:
+(the game is made with pygame,
+but the main manu is made with tkinter because its easyer to make button with
+tkinter)
 
 to install pygame you need to install pip(by installing python first)
 and then go to the cmd / terminal / powershell / a .bat file / whatever
@@ -12,9 +13,9 @@ pip install pygame
 or
 pip3 install pygame
 
-make sure to run the correct file of the game to start the game without baggs because the game got
+WARNING : make sure to run the correct file of the game to start the game without baggs because the game got
 a 3 file with some global vars for the game.
 
-the game isn't coded complitly yet so the code isn't in this github file yet!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+varsion 1.02
 
 Made by MrCatNerd from github.

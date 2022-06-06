@@ -1,3 +1,7 @@
+#Catch the coffee varasion 1.02
+#game isn't completed yet
+#Made by Alon BR.
+
 from tkinter import *
 from WITH_HEIGHT import WITH,HEIGHT
 from sys import exit

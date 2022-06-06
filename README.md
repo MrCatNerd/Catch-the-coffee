@@ -72,6 +72,7 @@ Never gonna make you cry
 Never gonna say goodbye
 Never gonna tell a lie and hurt you
 
-Always gonna rickroll around and hurt your ears!!!
+DON'T FORGET!
+YOU CAN GET RICK ROLLED EVEN IN GITHUB!
 
 Made by MrCatNerd from github.

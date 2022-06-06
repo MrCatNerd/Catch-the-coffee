@@ -1,4 +1,4 @@
-#Catch the coffee varasion 1.01
+#Catch the coffee varasion 1.02
 #game isn't completed yet
 #Made by Alon BR.
 from time import sleep as wait_secends
@@ -94,7 +94,7 @@ GAME_FONT = pygame.font.SysFont(None,GAME_FONT_SIZE)# making the font to render!
 #functions for use:
 global_score = 0
 def init():
-    global players_health,PLAYER_Y_VELOCITY
+    global players_health,PLAYER_Y_VELOCITY,global_score
 
     # inner function vars:
     FPS=60
@@ -227,11 +227,6 @@ def init():
         if PLAYER_Y_VELOCITY > 40:
             players_health-=ceil(PLAYER_Y_VELOCITY/1000)
         
-        if players_health<1:
-            run = False
-            pygame.quit()
-            import start_game
-            start_game.init()
         #deadline tick and life taking deadline area:
         deadline-=1
         if deadline <1:
@@ -250,6 +245,11 @@ def init():
 
             playerXY.x = player_size_X
             playerXY.y = HEIGHT/2
+        if players_health<1:
+            run = False
+            pygame.quit()
+            #import start_game
+            #start_game.init()
         
         #FPS and update display:
         pygame.display.update()

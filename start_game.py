@@ -57,9 +57,23 @@ def start_duificulty():
     hard = Button(duificulty_window,text="HARD",command= hard_duificulty).pack()
     hardcore = Button(duificulty_window,text="HARDCORE",command= hardcore_duificulty).pack()
 
+def taturial(text,text_color):
+    taturial_window = Toplevel(bg = bg_color)
+    taturial_label = Label(taturial_window,text = str(text), fg = str(text_color), bg= bg_color).pack(padx=100,pady=100)
+
+def call_taturial_by_click():
+    taturial( """Taturial
+    keys: KEY_UP,KEY_DOWN,KEY_LEF,KEY_RIGHT
+    you are falling constantly down, if your're too fast then you start to lose health.
+    Your target is to collect all of the coffee-beans before the deadline is over.
+    If the deadline is over then you lose amount of health by the duificulty.
+    In the game there is a potion that gives you speed, it will help you to catch the
+    coffee-beans""" , "white")
+
 def init():
 
     start_game = Button(window,text="START",fg = "gold",bg = "black",command= start_duificulty).pack()
+    taturial_buttom = Button(window,text="TATURIAL", fg = "lime", bg = "black", command=call_taturial_by_click).pack()
     exit_game = Button(window,text="CLOSE",fg = "silver",bg = "black",command=close_game).pack()
     
     window.mainloop()

@@ -41,11 +41,25 @@ duificulty_speed_potion_time_table = {
     "hardcore" : 7
 }
 
-duificulty_adding_target_table = {
-    "easy" : 5,
-    "normal" : 10,
-    "hard" : 20,
-    "hardcore" : 30
+duificulty_beans_target_adding_table = {
+    "easy": 10,
+    "normal":15,
+    "hard": 20,
+    "hardcore":25
+}
+
+duificulty_daedline_subtracting_table = {
+    "easy":50,
+    "normal":100,
+    "hard":150,
+    "hardcore":200
+}
+
+duificulty_deadline_starting_table = {
+    "easy":5000,
+    "normal":4000,
+    "hard":3000,
+    "hardcore":2000
 }
 
 duificulty_speed_potion_time = duificulty_speed_potion_time_table[duificulty]
@@ -105,7 +119,7 @@ def init():
     score=0#score of the game
     speed_time = 0#for speed potion
     #game deadline and target and gameplay
-    last_deadline = 5000
+    last_deadline = duificulty_deadline_starting_table[duificulty]
     deadline = last_deadline
     beans_target = 5
     game_round = 1
@@ -140,13 +154,15 @@ def init():
                     PLAYER_Y_VELOCITY=-10
         keys=pygame.key.get_pressed()# KEYS, needs to stay in the loop for updating
         
-        #font display render:
+        #font display render to update:
+        # (0,0,0) is black in RGB
         score_display = GAME_FONT.render(f"score: {score}",True,(0,0,0))
         health_display = GAME_FONT.render(str(players_health),True,(0,0,0))
         deadline_display =GAME_FONT.render(f"deadline : {deadline}",True,(0,0,0))
         round_display = GAME_FONT.render(f"round : {game_round}",True,(0,0,0))
         target_display = GAME_FONT.render(f"target of beans : {beans_target}",True,(0,0,0))
         time_potion_display = GAME_FONT.render(f"time left for speed: {speed_time}",True,(0,0,0))
+        global_score_display = GAME_FONT.render(f"global score : {global_score}",True,(0,0,0))
 
         #picture XY not entities!
         # if you want to find the square of an entity then search entities in cntrl+F
@@ -165,6 +181,8 @@ def init():
         app.blit(player,(playerXY.x,playerXY.y))
         
         app.blit(target_display,(20,40))
+
+        app.blit(global_score_display,(20,100))
 
         app.blit(score_display,(20,20))
 
@@ -233,8 +251,9 @@ def init():
             if score < beans_target :
                 players_health -= 1
             game_round+=1
-            last_deadline+duificulty_adding_target_table[duificulty]
+            last_deadline-=duificulty_daedline_subtracting_table[duificulty]
             deadline = last_deadline
+            beans_target+=duificulty_beans_target_adding_table[duificulty]
             score = 0
             
             coffee_beanXY.x = choice(range(coffee_bean_size_X,WITH-coffee_bean_size_X))
@@ -252,7 +271,11 @@ def init():
             #start_game.init()
         
         #FPS and update display:
-        pygame.display.update()
+        try:
+            pygame.display.update()
+        except:
+            pygame.init()
+            pygame.display.update
 
 if __name__ == '__main__':
     init()

@@ -18,6 +18,6 @@ a 3 file with some global vars for the game.
 
 varsion 1.02
 
-BTW: the you can delete the : "__pychache__" folder.
+BTW: the you can delete the : "__pychache__" folder it will recrate itself!.
 
 Made by MrCatNerd from github.

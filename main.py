@@ -1,5 +1,4 @@
-#Catch the coffee varasion 1.02
-#game isn't completed yet
+#Catch the coffee version 1.02
 #Made by Alon BR.
 import start_game
 
